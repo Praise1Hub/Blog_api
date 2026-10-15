@@ -1,10 +1,16 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import sequelize from './config/database.js';
+import userRoute from './route/user.route.js';
+import postRoute from './route/post.route.js';
+import commentRoute from './route/comment.route.js'
 
 dotenv.config();
 
 const app = express();
+app.use("/api/user/", userRoute)
+app.use("/api/post/", postRoute)
+app.use("/api/comment", commentRoute)
 
 app.use(express.json());
 
